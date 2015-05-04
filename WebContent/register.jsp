@@ -1,5 +1,5 @@
 
-<%@ page language="java" import="cmpe18032.*" %>
+<%@ page language="java" import="cmpe226.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -51,7 +51,7 @@ function check_all_fields(form_obj){
 <body>
 
 <%
-String isSet = request.getParameter("login");
+	String isSet = request.getParameter("login");
 if( isSet == null ){
 %>
 
@@ -87,8 +87,7 @@ if( isSet == null ){
 	<BR><BR>
 
 <%
-
-} else {
+	} else {
 
 	String custID = request.getParameter("login");
 	String password = request.getParameter("password");
@@ -104,10 +103,9 @@ if( isSet == null ){
 	String ccNumber = request.getParameter("ccnum");
 	String regDate = "2014-05-05";
 	
-	cmpe18032.Connector connector = new Connector();
+	cmpe226.Connector connector = new Connector();
 	
-	cmpe18032.Queries query = new Queries();
-	
+	cmpe226.Queries query = new Queries();
 %>  
   
   <b>New User Added</b> <BR><BR>

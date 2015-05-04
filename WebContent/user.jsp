@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@ page import = "cmpe18032.*" %>
+    <%@ page import = "cmpe226.*" %>
     <%@ page import="java.sql.*" %>
     <% Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); %>
 <html xmlns="http://www.w3.org/1999/xhtml">

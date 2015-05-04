@@ -1,5 +1,5 @@
 
-<%@ page language="java" import="cmpe18032.*"%>
+<%@ page language="java" import="cmpe226.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,8 +18,8 @@
 
 	<%
 		String isSet = request.getParameter("actors");
-			if (isSet == null)
-			{
+		if (isSet == null)
+		{
 	%>
 
 	Movie Search
@@ -38,30 +38,30 @@
 
 	<%
 		} else
+		{
+
+			String actors = request.getParameter("actors");
+			String directors = request.getParameter("directors");
+			String keywords = request.getParameter("keywords");
+			
+			String[] actorsArray = actors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+			java.util.ArrayList<String> actorsAL = new java.util.ArrayList<String>();
+			for(String s: actorsArray)
 			{
+		s = s.trim();
+		actorsAL.add(s);
+			}
+			String[] directorsArray = directors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+			java.util.ArrayList<String> directorsAL = new java.util.ArrayList<String>();
+			for(String s: directorsArray)
+			{
+		s = s.trim();
+		directorsAL.add(s);
+			}
+			
+			cmpe226.Connector connector = new Connector();
 
-		String actors = request.getParameter("actors");
-		String directors = request.getParameter("directors");
-		String keywords = request.getParameter("keywords");
-		
-		String[] actorsArray = actors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-		java.util.ArrayList<String> actorsAL = new java.util.ArrayList<String>();
-		for(String s: actorsArray)
-		{
-			s = s.trim();
-			actorsAL.add(s);
-		}
-		String[] directorsArray = directors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-		java.util.ArrayList<String> directorsAL = new java.util.ArrayList<String>();
-		for(String s: directorsArray)
-		{
-			s = s.trim();
-			directorsAL.add(s);
-		}
-		
-		cmpe18032.Connector connector = new Connector();
-
-		cmpe18032.Queries query = new Queries();
+			cmpe226.Queries query = new Queries();
 	%>
 
 	<b>Search results</b>

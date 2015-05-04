@@ -1,8 +1,10 @@
 
-<%@ page language="java" import="cmpe18032.*"%>
-   <%@ page import = "cmpe18032.*" %>
+<%@ page language="java" import="cmpe226.*"%>
+   <%@ page import = "cmpe226.*" %>
     <%@ page import="java.sql.*" %>
-    <% Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); %>
+    <%
+    	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,21 +40,19 @@
 
 	<%
 		String isSet = request.getParameter("movieid");
-	if(isSet != null) {
-		HttpSession ses = request.getSession(true);	
-		//String login = request.getParameter("uname");
-		String login = (String)session.getAttribute("uname");
-		String movieid = request.getParameter("movieid");
-		String rating = request.getParameter("rating");
-		cmpe18032.Connector connector = new Connector();
-		
-		cmpe18032.Queries query = new Queries();
+		if(isSet != null) {
+			HttpSession ses = request.getSession(true);	
+			//String login = request.getParameter("uname");
+			String login = (String)session.getAttribute("uname");
+			String movieid = request.getParameter("movieid");
+			String rating = request.getParameter("rating");
+			cmpe226.Connector connector = new Connector();
+			
+			cmpe226.Queries query = new Queries();
 
-  		out.println("adding a new rating");
-  		out.println(query.rateMovie(connector.stmt, login, movieid,rating));
-  		
-  		
-  %>
+	  		out.println("adding a new rating");
+	  		out.println(query.rateMovie(connector.stmt, login, movieid,rating));
+	%>
 	%>
 
 	<b>Movie is Rated!</b>

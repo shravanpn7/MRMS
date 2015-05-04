@@ -2,9 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@ page import = "cmpe18032.*" %>
+    <%@ page import = "cmpe226.*" %>
     <%@ page import="java.sql.*" %>
-    <% Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); %>
+    <%
+    	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+    %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script LANGUAGE="javascript">
@@ -66,9 +68,9 @@
                 <h3>Rate <span>Movies</span></h3>
 				<div>
 			<%
-String isSet = request.getParameter("MovieID");
-if( isSet == null ){
-%>	
+				String isSet = request.getParameter("MovieID");
+			if( isSet == null ){
+			%>	
 			
 <font color="white">Add a new Movie:</font>
 	<form name="user_add" method=get onsubmit="return check_all_fields(this)" action="addmovie.jsp">
@@ -90,8 +92,7 @@ if( isSet == null ){
 	<BR>
 	<BR>
 <%
-
-} else {
+	} else {
 
 	 String MovieID = request.getParameter("MovieID");
      String Title = request.getParameter("Title");
@@ -100,10 +101,9 @@ if( isSet == null ){
      String Genre = request.getParameter("Genre");
     
 	
-	cmpe18032.Connector connector = new Connector();
+	cmpe226.Connector connector = new Connector();
 	
-	cmpe18032.Queries query = new Queries();
-	
+	cmpe226.Queries query = new Queries();
 %>  
   
   <b>New Movie Added</b> <BR><BR>

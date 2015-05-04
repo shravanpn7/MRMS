@@ -2,9 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@ page import = "cmpe18032.*" %>
+    <%@ page import = "cmpe226.*" %>
     <%@ page import="java.sql.*" %>
-    <% Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); %>
+    <%
+    	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+    %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script LANGUAGE="javascript">
@@ -69,8 +71,8 @@
               <div class="inner">
 	<%
 		String isSet = request.getParameter("actors");
-			if (isSet == null)
-			{
+		if (isSet == null)
+		{
 	%>
 
 	<h3>Search <span>Movies / Actors</span></h3>
@@ -89,30 +91,30 @@
 
 	<%
 		} else
+		{
+
+			String actors = request.getParameter("actors");
+			String directors = request.getParameter("directors");
+			String keywords = request.getParameter("keywords");
+			
+			String[] actorsArray = actors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+			java.util.ArrayList<String> actorsAL = new java.util.ArrayList<String>();
+			for(String s: actorsArray)
 			{
+		s = s.trim();
+		actorsAL.add(s);
+			}
+			String[] directorsArray = directors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+			java.util.ArrayList<String> directorsAL = new java.util.ArrayList<String>();
+			for(String s: directorsArray)
+			{
+		s = s.trim();
+		directorsAL.add(s);
+			}
+			
+			cmpe226.Connector connector = new Connector();
 
-		String actors = request.getParameter("actors");
-		String directors = request.getParameter("directors");
-		String keywords = request.getParameter("keywords");
-		
-		String[] actorsArray = actors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-		java.util.ArrayList<String> actorsAL = new java.util.ArrayList<String>();
-		for(String s: actorsArray)
-		{
-			s = s.trim();
-			actorsAL.add(s);
-		}
-		String[] directorsArray = directors.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
-		java.util.ArrayList<String> directorsAL = new java.util.ArrayList<String>();
-		for(String s: directorsArray)
-		{
-			s = s.trim();
-			directorsAL.add(s);
-		}
-		
-		cmpe18032.Connector connector = new Connector();
-
-		cmpe18032.Queries query = new Queries();
+			cmpe226.Queries query = new Queries();
 	%>
 
 	<b>Search results</b>

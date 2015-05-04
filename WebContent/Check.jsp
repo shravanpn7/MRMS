@@ -1,4 +1,4 @@
-<%@page import="cmpe18032.BCrypt"%>
+<%@page import="cmpe226.BCrypt"%>
 <%@ page import ="java.sql.*" %>
 <%
     String userid = request.getParameter("uname");    

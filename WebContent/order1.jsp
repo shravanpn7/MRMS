@@ -1,5 +1,5 @@
 
-<%@ page language="java" import="cmpe18032.*"%>
+<%@ page language="java" import="cmpe226.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,18 +32,18 @@
 
 	<%
 		String isSet = request.getParameter("movieid");
-	if(isSet != null) {
-		HttpSession ses = request.getSession(true);	
-		//String login = request.getParameter("uname");
-		String login = (String)session.getAttribute("uname");
-		String movieid = request.getParameter("movieid");
-		
-		
+		if(isSet != null) {
+			HttpSession ses = request.getSession(true);	
+			//String login = request.getParameter("uname");
+			String login = (String)session.getAttribute("uname");
+			String movieid = request.getParameter("movieid");
 			
+			
+		
 
-		cmpe18032.Connector connector = new Connector();
+			cmpe226.Connector connector = new Connector();
 
-		cmpe18032.Queries query = new Queries();
+			cmpe226.Queries query = new Queries();
 	%>
 
 	<b>New Order Created</b>
