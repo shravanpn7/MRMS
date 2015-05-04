@@ -1,5 +1,5 @@
 
-<%@ page language="java" import="cmpe18032.*" %>
+<%@ page language="java" import="cmpe226.*" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +20,7 @@ function check_all_fields(form_obj){
 <body>
 
 <%
-String isSet = request.getParameter("MovieID");
+	String isSet = request.getParameter("MovieID");
 if( isSet == null ){
 %>
 
@@ -44,8 +44,7 @@ if( isSet == null ){
 	<BR><BR>
 
 <%
-
-} else {
+	} else {
 
 	 String MovieID = request.getParameter("MovieID");
      String Title = request.getParameter("Title");
@@ -54,10 +53,9 @@ if( isSet == null ){
      String Genre = request.getParameter("Genre");
     
 	
-	cmpe18032.Connector connector = new Connector();
+	cmpe226.Connector connector = new Connector();
 	
-	cmpe18032.Queries query = new Queries();
-	
+	cmpe226.Queries query = new Queries();
 %>  
   
   <b>New Movie Added</b> <BR><BR>

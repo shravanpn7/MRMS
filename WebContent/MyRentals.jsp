@@ -2,9 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <%@ page import = "cmpe18032.*" %>
+    <%@ page import = "cmpe226.*" %>
     <%@ page import="java.sql.*" %>
-    <% Class.forName("sun.jdbc.odbc.JdbcOdbcDriver"); %>
+    <%
+    	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+    %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script LANGUAGE="javascript">
@@ -60,17 +62,17 @@
         </div>
       </div>
       <%
-Connection con;
-String userName = "root";
-String password = "papanaidu";
-String url = "jdbc:mysql://localhost:3306/mrms";
-Class.forName ("com.mysql.jdbc.Driver").newInstance();
-con = DriverManager.getConnection (url, userName, password);
+      	Connection con;
+      String userName = "root";
+      String password = "papanaidu";
+      String url = "jdbc:mysql://localhost:3306/mrms";
+      Class.forName ("com.mysql.jdbc.Driver").newInstance();
+      con = DriverManager.getConnection (url, userName, password);
 
-Statement statement = con.createStatement() ;
-ResultSet resultset = 
-    statement.executeQuery("select transaction.MovieID, Title, T_iD, T_time, T_date, Due_date from movies, transaction where CustID = '"+ session.getAttribute("uname") +"' and transaction.MovieID = movies.MovieID ");
-%>
+      Statement statement = con.createStatement() ;
+      ResultSet resultset = 
+          statement.executeQuery("select transaction.MovieID, Title, T_iD, T_time, T_date, Due_date from movies, transaction where CustID = '"+ session.getAttribute("uname") +"' and transaction.MovieID = movies.MovieID ");
+      %>
       <div id="content">
         <div class="line-hor"></div>
         <div class="box">
@@ -90,16 +92,20 @@ ResultSet resultset =
 	
 
 </TR>
-<% while(resultset.next()){ %>
+<%
+	while(resultset.next()){
+%>
 <TR>
-    <TD> <%= resultset.getString(1) %></td>
-    <TD> <%= resultset.getString(2) %></TD>
-	<TD> <%= resultset.getString(3) %></TD>
-	<TD> <%= resultset.getString(4) %></TD>
-	<TD> <%= resultset.getString(5) %></TD>
-	<TD> <%= resultset.getString(6) %></TD>
+    <TD> <%=resultset.getString(1)%></td>
+    <TD> <%=resultset.getString(2)%></TD>
+	<TD> <%=resultset.getString(3)%></TD>
+	<TD> <%=resultset.getString(4)%></TD>
+	<TD> <%=resultset.getString(5)%></TD>
+	<TD> <%=resultset.getString(6)%></TD>
 </TR>
-<% } %>
+<%
+	}
+%>
 </TABLE>
 				</div>
 	<BR>
@@ -107,18 +113,18 @@ ResultSet resultset =
 
 	<%
 		String isSet = request.getParameter("movieid");
-	if(isSet != null) {
-		HttpSession ses = request.getSession(true);	
-		//String login = request.getParameter("uname");
-		String login = (String)session.getAttribute("uname");
-		String movieid = request.getParameter("movieid");
-		
-		
+		if(isSet != null) {
+			HttpSession ses = request.getSession(true);	
+			//String login = request.getParameter("uname");
+			String login = (String)session.getAttribute("uname");
+			String movieid = request.getParameter("movieid");
 			
+			
+		
 
-		cmpe18032.Connector connector = new Connector();
+			cmpe226.Connector connector = new Connector();
 
-		cmpe18032.Queries query = new Queries();
+			cmpe226.Queries query = new Queries();
 	%>
 
 	<b>New Order Created</b>
