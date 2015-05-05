@@ -80,9 +80,9 @@
 		action="moviebrowse.jsp">
 		<input type=hidden name="searchAttribute" value="degrees">
 		<font color="white">Actor Name</font>
-		<input type=text name="actors" length=100><br />
+		<input type=text name="actors" length=100  align="right"><br />
 		<font color="white">Movie Name</font>
-		<input type=text name="directors" length=100><br /> 
+		<input type=text name="directors" length=100  align="right"><br /> 
 		
 		<input type=submit value="Search">
 	</form>
