@@ -26,9 +26,7 @@
 <script src="js/cufon-replace.js" type="text/javascript"></script>
 <script src="js/Gill_Sans_400.font.js" type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <!--[if lt IE 7]>
 <script type="text/javascript" src="js/ie_png.js"></script>
 <script type="text/javascript">ie_png.fix('.png, .link1 span, .link1');</script>

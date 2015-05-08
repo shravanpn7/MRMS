@@ -402,8 +402,8 @@ public class Queries extends BCrypt {
     	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     	String T_time = sdf.format(cal.getTime());
 	
-		String T_date = "2014-05-07";
-		String Due_date = "2014-05-12";
+		String T_date = "2015-05-05";
+		String Due_date = "2015-05-12";
 		String comma = ",";
 		String sql = "insert into transaction (CustID, MovieID, T_time,T_date,Due_date) values('"
 				+ login + "','" + movieid + "','" + T_time + "','" + T_date + "','" + Due_date + "')";
